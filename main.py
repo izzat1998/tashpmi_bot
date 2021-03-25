@@ -16,9 +16,10 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     PATH = '/home/izzat/tashpmi/media/'
-
-    r = requests.post('http://e-tashpmi.uz/bot/student_statistic/', data=message.text)
-    print()
+    data = {
+        'login': message.text
+    }
+    r = requests.post('http://127.0.0.1:8000/bot/student_statistic/', data=data)
     if r.status_code == 201:
         doc = open(PATH + message.text + '.docx', 'rb')
         bot.send_document(message.chat.id, doc)
