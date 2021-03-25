@@ -19,7 +19,7 @@ def send_text(message):
     data = {
         'login': message.text
     }
-    r = requests.post('http://127.0.0.1:8000/bot/student_statistic/', data=data)
+    r = requests.post('http://e-tashpmi.uz/bot/student_statistic/', data=data)
     if r.status_code == 201:
         doc = open(PATH + message.text + '.docx', 'rb')
         bot.send_document(message.chat.id, doc)
