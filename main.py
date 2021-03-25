@@ -17,7 +17,7 @@ def start_message(message):
 def send_text(message):
     PATH = '/home/izzat/tashpmi/media/'
 
-    r = requests.post('http://143.110.225.4/bot/student_statistic/', data=message.text)
+    r = requests.post('http://e-tashpmi.uz/bot/student_statistic/', data=message.text)
     print()
     if r.status_code == 201:
         doc = open(PATH + message.text + '.docx', 'rb')
