@@ -16,25 +16,16 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     PATH = '/home/izzat/tashpmi/media/'
-    file_names = [f for f in listdir(PATH) if
-                  isfile(join(PATH, f))]
 
-    if message.text == '103103':
-        data = {
-            'directions': ['Даволаш иши', 'Тиббий педагогика'],
-            'levels': [6, 6],
-            'login': message.text
-        }
-        requests.post('http://143.110.225.4/bot/student_statistic/', data=data)
-
+    r = requests.post('http://143.110.225.4/bot/student_statistic/', data=message.text)
+    print()
+    if r.status_code == 201:
         doc = open(PATH + message.text + '.docx', 'rb')
         bot.send_document(message.chat.id, doc)
-    else:
-        r = requests.get('http://143.110.225.4/bot/student_list/' + message.text)
-        if r.status_code == 404:
-            bot.send_message(chat_id=message.chat.id, text='Такого ID  не существует ')
-        elif r.status_code == 200:
-            text = '''{}
+    elif r.status_code == 404:
+        bot.send_message(chat_id=message.chat.id, text='Такого ID  не существует ')
+    elif r.status_code == 200:
+        text = '''{}
 Курс {}
 ID  {}
 Оплачено {}
