@@ -50,7 +50,7 @@ def send_message(chat_id, text):
 
 def send_document(chat_id, text):
     url = URL + 'sendDocument'
-    PATH = '/home/izzat/tashpmi/media'
+    PATH = '/home/izzat/tashpmi/media/'
     with open(PATH + text + '.docx', 'rb') as doc:
         files = {"document": doc}
         title = '555.docx'
