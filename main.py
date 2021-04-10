@@ -61,4 +61,4 @@ def send_document(chat_id, text):
 
 
 if __name__ == '__main__':
-    app.run(host='www.e-tashpmi.uz', port=8443)
+    app.run()
