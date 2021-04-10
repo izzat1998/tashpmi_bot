@@ -1,10 +1,11 @@
 from flask import Flask
 from flask import request
 import requests
+from flask_sslify import SSLify
 
 app = Flask(__name__)
 URL = 'https://api.telegram.org/bot1119459653:AAE7GyPDmCjT-pzLtGt_h9_VSivEwDzcZ0g'
-
+sslify = SSLify(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
