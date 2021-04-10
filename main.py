@@ -3,7 +3,7 @@ from flask import request
 import requests
 
 app = Flask(__name__)
-URL = 'https://api.telegram.org/bot1781862582:AAG2GInZDiz-sK_-q56M_u5b-lACCejoFpg/'
+URL = 'https://api.telegram.org/bot1119459653:AAE7GyPDmCjT-pzLtGt_h9_VSivEwDzcZ0g'
 
 
 @app.route('/', methods=['POST', 'GET'])
